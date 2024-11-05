@@ -1,26 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D playerRB;
+    private Rigidbody2D playerRigidBody;
+    private Animator playerAnimator;
     [SerializeField] private float playerSpeed = 100.0f;
-    float horizontalMovement;
+    private float horizontalMovement;
+    private bool isRunning;
     void Start()
     {
-        playerRB = GetComponent<Rigidbody2D>();
+        playerRigidBody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
+        
     }
 
-    void Run()
+    private void Run()
     {
         horizontalMovement = Input.GetAxis("Horizontal");
-        playerRB.velocity = new Vector2(horizontalMovement * playerSpeed * Time.deltaTime, playerRB.velocity.y);
+        playerRigidBody.velocity = new Vector2(horizontalMovement * playerSpeed * Time.deltaTime, playerRigidBody.velocity.y);
+        FlipSprite();
+        ChangeRunningAnimation();
+    }
+
+    private void FlipSprite()
+    {
+        isRunning = Mathf.Abs(playerRigidBody.velocity.x) > Mathf.Epsilon;
+        if(isRunning)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(playerRigidBody.velocity.x), transform.localScale.y);
+        }
+    }
+
+    private void ChangeRunningAnimation()
+    {
+        playerAnimator.SetBool("isRunning", isRunning);
     }
 }
