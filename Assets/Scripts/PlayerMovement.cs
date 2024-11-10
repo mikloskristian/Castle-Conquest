@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerJumpAmmount = 150.0f;
     private Rigidbody2D playerRigidBody;
     private Animator playerAnimator;
+    private BoxCollider2D boxCollider;
+    private PolygonCollider2D polygonCollider;
     private float horizontalMovement;
     private bool isRunning;
     private bool isJumping;
@@ -17,13 +19,18 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        polygonCollider = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
-        Jump();
+        if(polygonCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            Jump();
+        }
     }
 
     private void Jump()
@@ -32,14 +39,14 @@ public class PlayerMovement : MonoBehaviour
 
         if(isJumping)
         {
-            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, playerJumpAmmount * Time.deltaTime);
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, playerJumpAmmount);
         }
     }
 
     private void Run()
     {
         horizontalMovement = Input.GetAxis("Horizontal");
-        playerRigidBody.velocity = new Vector2(horizontalMovement * playerSpeed * Time.deltaTime, playerRigidBody.velocity.y);
+        playerRigidBody.velocity = new Vector2(horizontalMovement * playerSpeed, playerRigidBody.velocity.y);
         FlipSprite();
         ChangeRunningAnimation();
     }

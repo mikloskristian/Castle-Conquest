@@ -2148,6 +2148,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &687648264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3352177505313692852, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
+  m_PrefabInstance: {fileID: 8800631127720862867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &687648271
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687648264}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.8125, y: 1.8125}
+    newSize: {x: 1.8125, y: 1.8125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.30606163, y: -0.39269507}
+      - {x: -0.15096068, y: -0.38894296}
+      - {x: -0.15285881, y: -0.47680128}
+      - {x: 0.30510736, y: -0.47594452}
+      - {x: 0.30642292, y: -0.38965952}
+  m_UseDelaunayMesh: 0
 --- !u!1 &2140515121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2217,7 @@ GameObject:
   - component: {fileID: 2140515125}
   - component: {fileID: 2140515127}
   - component: {fileID: 2140515126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foreground Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3345,16 +3400,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2310909266312230667, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
       propertyPath: playerSpeed
-      value: 1000
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310909266312230667, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
+      propertyPath: playerJumpAmmount
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3352177505313692852, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4766213698846370631, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 4e53790b02f63914ab0f696fd648f76d, type: 2}
     - target: {fileID: 6806289588218905520, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16
@@ -3395,10 +3454,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7455845550813268643, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8539221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455845550813268643, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.037317395
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3352177505313692852, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 687648271}
   m_SourcePrefab: {fileID: 100100000, guid: f1124a94689546842a1588ca9cdebd33, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

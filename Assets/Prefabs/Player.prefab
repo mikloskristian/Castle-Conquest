@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4766213698846370631}
   - component: {fileID: 7455845550813268643}
   - component: {fileID: 2310909266312230667}
+  - component: {fileID: 7965513374497014070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -125,7 +126,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4e53790b02f63914ab0f696fd648f76d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -168,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06803417, y: -0.055210352}
+  m_Offset: {x: 0.06803417, y: -0.037317395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -179,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6444993, y: 0.88970804}
+  m_Size: {x: 0.6444993, y: 0.8539221}
   m_EdgeRadius: 0
 --- !u!114 &2310909266312230667
 MonoBehaviour:
@@ -193,5 +194,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3df02838d1797040a44b4753e15c4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 1000
-  playerJumpAmmount: 1800
+  playerSpeed: 10
+  playerJumpAmmount: 12
+--- !u!60 &7965513374497014070
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352177505313692852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.8125, y: 1.8125}
+    newSize: {x: 1.8125, y: 1.8125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.30606163, y: -0.39269507}
+      - {x: -0.15096068, y: -0.38894296}
+      - {x: -0.15285881, y: -0.47680128}
+      - {x: 0.30510736, y: -0.47594452}
+      - {x: 0.30642292, y: -0.38965952}
+  m_UseDelaunayMesh: 0
