@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float playerSpeed = 100.0f;
+    [SerializeField] private float playerJumpAmmount = 150.0f;
     private Rigidbody2D playerRigidBody;
     private Animator playerAnimator;
-    [SerializeField] private float playerSpeed = 100.0f;
     private float horizontalMovement;
     private bool isRunning;
+    private bool isJumping;
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
@@ -21,7 +23,17 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Run();
-        
+        Jump();
+    }
+
+    private void Jump()
+    {
+        isJumping = Input.GetButtonDown("Jump");
+
+        if(isJumping)
+        {
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, playerJumpAmmount * Time.deltaTime);
+        }
     }
 
     private void Run()
